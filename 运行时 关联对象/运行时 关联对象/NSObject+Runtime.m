@@ -10,4 +10,8 @@
 
 @implementation NSObject (Runtime)
 
++(NSArray *)wjy_objcProtyList {
+    
+}
+
 @end

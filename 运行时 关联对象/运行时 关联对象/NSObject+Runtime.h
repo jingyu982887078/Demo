@@ -10,4 +10,7 @@
 
 @interface NSObject (Runtime)
 
+//定义方法获取属性列表数组
++(NSArray *)wjy_objcProtyList;
+
 @end
