@@ -12,31 +12,29 @@
 @implementation NSObject (Runtime)
 
 
-+(NSArray *)wjy_objcProtyListWithDict:(NSDictionary *)dict {
++(instancetype)wjy_objcProtyListWithDict:(NSDictionary *)dict {
     
    id object = [[self alloc]init];
     
     //获取类所有的属性
     NSArray *propertylist = [self wjy_objcProtyList];
     
-    NSMutableArray *array = [NSMutableArray array];
-    
     //遍历数组字典
     [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        
+        NSLog(@"%@ %@ ",key,obj);
        
-        if ([propertylist containsObject:obj]) {
+        if ([propertylist containsObject:key]) {
             
             //kvc赋值
             [object setValue:obj forKey:key];
         }
         
-        [array addObject:object];
-        
     }];
     
+    NSLog(@"%@",object);
     
-    
-    return array.copy;
+    return object;
 }
 
 

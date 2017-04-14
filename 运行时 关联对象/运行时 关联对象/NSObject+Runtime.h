@@ -15,6 +15,6 @@
 
 //字典转模型
 
-+(NSArray *)wjy_objcProtyListWithDict:(NSDictionary *)dict;
++(instancetype)wjy_objcProtyListWithDict:(NSDictionary *)dict;
 
 @end

@@ -26,12 +26,12 @@
     
     //字典转模型
     NSDictionary *dict = @{@"name":@"wangjingyu",
-                           @"height":@"180",
-                           @"age":@"18"
+                           @"age":@"18",
+                           @"height":@"180"
                            };
     
-    NSArray *array = [Person wjy_objcProtyListWithDict:dict];
-    NSLog(@"%@",array);
+    Person *p = [Person wjy_objcProtyListWithDict:dict];
+    NSLog(@"%@",p);
     
 }
 
