@@ -12,6 +12,34 @@
 @implementation NSObject (Runtime)
 
 
++(NSArray *)wjy_objcProtyListWithDict:(NSDictionary *)dict {
+    
+   id object = [[self alloc]init];
+    
+    //获取类所有的属性
+    NSArray *propertylist = [self wjy_objcProtyList];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    
+    //遍历数组字典
+    [dict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+       
+        if ([propertylist containsObject:obj]) {
+            
+            //kvc赋值
+            [object setValue:obj forKey:key];
+        }
+        
+        [array addObject:object];
+        
+    }];
+    
+    
+    
+    return array.copy;
+}
+
+
 +(NSArray *)wjy_objcProtyList {
     
     //获得属性列表数组
