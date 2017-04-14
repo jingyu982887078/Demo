@@ -38,7 +38,17 @@
 }
 
 
+const char *str = "key";
+
 +(NSArray *)wjy_objcProtyList {
+    
+    
+    //1.从关联的对象中获取属性
+    
+   NSArray *pArray = objc_getAssociatedObject(self, str);
+    if (pArray != nil) {
+        return nil;
+    }
     
     //获得属性列表数组
     //c语言中，数组的名字就是指向第一个元素的地址
@@ -62,6 +72,9 @@
     }
     
     free(proty);
+    
+    //2.利用关联对象，添加属性
+    objc_setAssociatedObject(self, str, pArray,OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     return array.copy;
     
